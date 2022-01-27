@@ -1,0 +1,10 @@
+npx create-react-app [prj_name] --template typescript
+파일, 코드정리
+npm i styled-components
+npm i --save-dev @types/styled-components
+패키지 설치
+npm i react-router-dom@5.3.0 react-query
+npm i --save-dev @types/react-router-dom
+react-router-dom@5.3.0이 아닌 그냥 react-router-dom으로 설치하게 되면 현재 기준으로 6버전이 설치되고, 바뀐 6버전 문법으로 진행하셔야 합니다.
+
+npm install framer-motion (animation)
