@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { HashRouter, Route, Switch } from "react-router-dom";
 import Coin from "./routes/Coin";
 import Coins from "./routes/Coins";
 
@@ -8,7 +8,7 @@ interface IRouterProps {
 }
 function Router({ toggleTheme, isDark }: IRouterProps) {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
         <Route path="/" exact>
           <Coins toggleTheme={toggleTheme} />
@@ -17,7 +17,7 @@ function Router({ toggleTheme, isDark }: IRouterProps) {
           <Coin isDark={isDark} />
         </Route>
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
