@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
-import { ReactQueryDevtools } from "react-query/devtools";
-import Router from "./Router";
-import { darkTheme, lightTheme } from "./theme";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { createGlobalStyle } from "styled-components";
+import ToDoList from "./components/ToDoList";
+import CategoryList from "./components/CategoryList";
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
@@ -64,19 +63,17 @@ a {
   color: inherit;
 }
 `;
-interface IIsDarkProps {
-  isDark: boolean;
-}
+
 function App() {
-  const [isDark, setIsDark] = useState(true);
-  const toggleTheme = () => setIsDark((prev) => !prev);
   return (
     <>
-      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
-        <GlobalStyle />
-        <Router isDark={isDark} toggleTheme={toggleTheme} />
-        <ReactQueryDevtools initialIsOpen={true} />
-      </ThemeProvider>
+      <GlobalStyle />
+	  <Router>
+		  <Switch>
+			  <Route path="/category"><CategoryList /></Route>
+			  <Route path="/" exact><ToDoList /></Route>
+		  </Switch>
+	  </Router>
     </>
   );
 }
